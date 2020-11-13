@@ -33,6 +33,7 @@ function summation(number) {
   return count;
   }
  
+  console.log(summation(4));
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
 // Given this zoo data from around the United States, follow the instructions below. Use the specific array methods in the requests below to solve the problems.
@@ -57,34 +58,50 @@ const zooAnimals = [
     const displayNames = [];
 
     zooAnimals.forEach(function(item){
-      displayNames.push(`Name: ${item.animal_name}, Scientific: ${item.scientific_name}`);
+      return displayNames.push(`name: ${item.animal_name}, scientific: ${item.scientific_name}`);
     });
     return displayNames;
   }
+
+  console.log(animalNames(zooAnimals));
   
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
   The zoos need a list of all their animal's names (animal_name only) converted to lower case. Using map, create a new array of strings named lowCaseAnimalNames, each string following this pattern: "jackal, asiatic". Log the resut.
   */
-  function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowerCaseNames(zooAnimals){
+    const lowerCaseAnimals = zooAnimals.map(function(item){
+      return item.animal_name.toLowerCase();
+    });
+    return lowerCaseAnimals;
   }
+
+  console.log(lowerCaseNames(zooAnimals));
   
   
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
   The zoos are concerned about animals with a lower population count. Using filter, create a new array of objects called lowPopulationAnimals which contains only the animals with a population less than 5.
   */
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowPopulationAnimals(zooAnimals){
+    const lowPop = zooAnimals.filter(function(item){
+      return item.population < 5;
+    });
+    return lowPop;
   }
   
+  console.log(lowPopulationAnimals(zooAnimals));
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
   The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
   */
-  function USApop(/*Your Code Here*/){
-    /*Your Code Here*/
+  function USApop(zooAnimals){
+    const totalAnimalPopulation = zooAnimals.reduce(function(acc, currentValue){
+      return acc += currentValue.population;
+    }, 0);
+    return totalAnimalPopulation;
   }
+
+  console.log(USApop(zooAnimals));
   
   
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
@@ -104,15 +121,22 @@ const zooAnimals = [
   function add(a, b){
     return (a + b);
   }
+
+  // const add = (a,b) => a + b
+
 // 🦁🦁🦁 Create a function named multiply that returns the product of two numbers 🦁🦁🦁
   function multiply(a, b){
    return (a *b);
   }
 
+  // const multiply = (a,b) => a * b
+
  // 🦁🦁🦁 Create a function named greeting that accepts a first and last name and returns "Hello first-name last-name, nice to meet you!" 🦁🦁🦁
   function greeting(a, b){
    return `Hello ${a} ${b}, nice to meet you!`;
   }
+
+  // const greeting = (a,b) => `Hello ${a} ${b}, nice to meet you!`
   
   // 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁 
   // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
