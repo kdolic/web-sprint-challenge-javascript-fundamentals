@@ -126,7 +126,7 @@ const zooAnimals = [
 
 // 🦁🦁🦁 Create a function named multiply that returns the product of two numbers 🦁🦁🦁
   function multiply(a, b){
-   return (a *b);
+   return (a * b);
   }
 
   // const multiply = (a,b) => a * b
@@ -237,8 +237,32 @@ const cuboidTwo = new CuboidMakerTwo({
 
 // 🦄 💪 Stretch Task: Extend the base class CuboidMaker with a sub class called CubeMaker.  Find out the formulas for volume and surface area for cubes and create those methods using the dimension properties from CuboidMaker.  Test your work by logging out your volume and surface area. 🦄 💪
   
+class CubeMaker extends CuboidMaker{
+  constructor(attributes){
+    super(attributes);
+    this.side = attributes.side;
+  }
 
+  cubeVolume(){
+    return (this.side * this.side * this.side);
 
+  }
+
+  cubeSurfaceArea(){
+    return ((this.side * this.side) * 6);
+  }
+
+}
+
+const cube = new CubeMaker({
+  length: 4,
+  width: 4,
+  height: 4,
+  side: 4
+});
+
+console.log(cube.volume()); // 64
+console.log(cube.surfaceArea()); // 96
 
 
 
